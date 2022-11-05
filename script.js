@@ -65,6 +65,5 @@ function handleStart()
   setupCactus()
   startScreenElem.classList.add("hide")
   window.requestAnimationFrame(update);
-  
 }
 window.requestAnimationFrame(update);
