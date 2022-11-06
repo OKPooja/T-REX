@@ -2,7 +2,6 @@
 import { setupGround, updateGround } from './ground.js';
 import { updateCactus, setupCactus, getCactusRects} from "./cactus.js"
 import {updateDino, setupDino, getDinoRect, setDinoLose} from "./dino.js"
-import { getCustomProperty } from './updateCustomProperty.js';
 
 const worldWidth = 100;
 const worldHeight = 15;
@@ -22,7 +21,7 @@ let lastTime;
 let speedScale;
 let score;
 let highScore;
-if(!window.localStorage.getItem("highscore")){
+if(window.localStorage.getItem("highscore")===null){
   highScore = 0;
 }
 else{
