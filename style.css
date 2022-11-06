@@ -11,6 +11,11 @@ body {
   align-items: center;
   min-height: 100vh;
 }
+a{
+  text-decoration: none;
+  color :rgb(95, 84, 84);
+  font-family: 'Press Start 2P', cursive;
+}
 .world {
   position: relative;
   overflow: hidden;
@@ -31,6 +36,7 @@ body {
   color :rgb(95, 84, 84);
   position: absolute;
   left:1vmin;
+  top:1vmin;
   --highScore : 0;
 }
 .start-screen {
@@ -41,6 +47,12 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.menu{
+  position: fixed;
+  top:10px;
+  left:10px;
+  height: 50px;
 }
 .hide {
   display: none;

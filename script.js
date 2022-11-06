@@ -21,7 +21,13 @@ document.addEventListener("keydown", handleStart,{once: true})
 let lastTime;
 let speedScale;
 let score;
-let highScore = window.localStorage.getItem("highscore");
+let highScore;
+if(!window.localStorage.getItem("highscore")){
+  highScore = 0;
+}
+else{
+  highScore = window.localStorage.getItem("highscore");
+}
 highScoreElement.textContent = highScore;
 
 function update(time) {
