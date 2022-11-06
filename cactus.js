@@ -2,7 +2,7 @@ import { getCustomProperty, incrementCustomProperty, setCustomProperty } from ".
 
 const Speed= 0.05
 const Cactus_int_min=500
-const Cactus_int_max=2000
+const Cactus_int_max=2700;
 const worldElement=document.querySelector("[data-world]")
 
 let nextCactusTime
