@@ -16,7 +16,7 @@ isJumping=false
 dinoFrame=0
 currentFrameTime=0
 yVelocity=0
-setCustomProperty(dinoElem,"--boottom",0)
+setCustomProperty(dinoElem,"--bottom",0)
 document.removeEventListener("keydown",onJump)
 document.addEventListener("keydown",onJump)
 }
@@ -62,7 +62,7 @@ function handleJump(delta)
 
    if(getCustomProperty(dinoElem,"--bottom")<=0)
    {
-    setCustomProperty(dinoElem,"--bottom",0)
+    setCustomProperty(dinoElem, "--bottom", 0)
     isJumping=false
    }
 
