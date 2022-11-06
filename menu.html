@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Menu</title>
-    <link rel="stylesheet" type="text/css" href="style_menu.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main Menu</title>
+        <script src="volume.js" type="module"></script>
+        <link rel="stylesheet" type="text/css" href="style_menu.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="options">
         <h1>T-REX GAME</h1>
-        <button class="option-element play"><a href="index.html">PLAY</a></button>
-        <button class="option-element volume-sfx">SETTINGS</button>
-        <button class="option-element github"><a href="https://github.com/mozilla01/T-REX-game-MPR" target="_blank">VIEW SOURCE CODE</a></button>
+        <button class="option-element play" data-hide><a href="index.html">PLAY</a></button>
+        <button class="option-element volume-sfx" data-volume-sfx>SETTINGS</button>
+        <button class="option-element github" data-hide><a href="https://github.com/mozilla01/T-REX-game-MPR" target="_blank">VIEW SOURCE CODE</a></button>
+        <h2 class="volume hide" data-volume>Volume controls</h2>
+        <input type="range" min="0" max="100" value="100" class="volume-controls hide" data-volume-controls>
+        <button data-go-back class="go-back hide">GO BACK</button>
     </div>
 </body>
+<audio autoplay loop data-audio><source src = "Lurking-Evil.mp3" type ="audio/mpeg"></audio>
 </html>
