@@ -1,21 +1,17 @@
- *,
+*,
 *::before,
 *::after {
   box-sizing: border-box;
   user-select: none;
-}
-body {
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 0;
 }
 a{
   text-decoration: none;
   color :rgb(95, 84, 84);
   font-family: 'Press Start 2P', cursive;
 }
+
 .world {
   position: relative;
   overflow: hidden;
@@ -44,7 +40,7 @@ a{
   font-size: 4.5vmin;
   font-family: 'Press Start 2P', cursive;
   color :rgb(95, 84, 84);
-  top: 50%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -76,4 +72,39 @@ a{
   bottom: 0;
   left: calc(var(--left) * 1%);
   height: 30%;
+}
+.cloud1{
+  position:absolute; 
+  top:10%;
+  left: 10% ;
+  height: 50%;
+  width: 40%;
+  float: right;
+}
+.cloud2{
+  position:absolute; 
+  top:5%;
+  left: 40% ;
+  height: 50%;
+  width: 35%;
+}
+.bg-sky{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(imgs/sky.jpg);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100% 62vh;
+}
+.sun{
+  position:absolute; 
+  top:5%;
+  right: 3vmin ;
+  height: 30%;
+  width: 15%;
+
 }
