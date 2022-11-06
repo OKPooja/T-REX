@@ -21,6 +21,11 @@ export function updateCactus(delta, speedScale) {
         cactus.remove()
       }
     })
+    if(nextCactusTime<=0){
+        createCactus()
+        nextCactusTime=randomNumberBetween(Cactus_int_min,Cactus_int_max)/speedScale
+    }
+    nextCactusTime-=delta
 }
 export function getCactusRects(){
     return [...document.querySelectorAll("[data-cactus]")].map(cactus=>
