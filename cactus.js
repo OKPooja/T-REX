@@ -1,4 +1,4 @@
-import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./updateCustomProperty"
+import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./updateCustomProperty.js"
 
 const Speed= 0.05
 const Cactus_int_min=500
@@ -10,21 +10,24 @@ let nextCactusTime
 export function setupCactus()
 {
     nextCactusTime=Cactus_int_min
-   
-}
-export function updateCactus(delta, speedScale)
-{
-    document.querySelector("[data-cactus]").forEach(cactus=>{
-        incrementCustomProperty(cactus, "--left",delta*speedScale*Speed-1)
-        if (getCustomProperty(cactus,"--left")<=-100){
-            cactus.remove()
-        }
+    document.querySelectorAll("[data-cactus]").forEach(cactus=>{
+        cactus.remove()
     })
-    if(nextCactusTime<=0){
-        createCactus()
-        nextCactusTime=randomNumberBetween(Cactus_int_min, Cactus_int_max)/speedScale
-    }
-    nextCactus-=delta
+}
+export function updateCactus(delta, speedScale) {
+    document.querySelectorAll("[data-cactus]").forEach(cactus => {
+      incrementCustomProperty(cactus, "--left", delta * speedScale * Speed * -1)
+      if (getCustomProperty(cactus, "--left") <= -100) {
+        cactus.remove()
+      }
+    })
+}
+export function getCactusRects(){
+    return [...document.querySelectorAll("[data-cactus]")].map(cactus=>
+        {
+            return cactus.getBoundingClientRect()
+        })
+
 }
 function createCactus(){
     const cactus=document.createElement("img")

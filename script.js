@@ -1,27 +1,17 @@
-'use strict';
+//'use strict';
 import { setupGround, updateGround } from './ground.js';
-import { updateCactus, setupCactus} from "./cactus.js"
-import {updateDino, setupDino} from "./dino.js"
+import { updateCactus, setupCactus, getCactusRects} from "./cactus.js"
+import {updateDino, setupDino, getDinoRect, setDinoLose} from "./dino.js"
 
 const worldWidth = 100;
 const worldHeight = 30;
-const SPEED_SCALE_INC=0.0001
+const SPEED_SCALE_INC=0.00001
 
 const worldElement = document.querySelector("[data-world]");
 const scoreElement = document.querySelector("[data-score]");
 const startScreenElem = document.querySelector("[data-start-screen]");
 
-const setPixelToWorldScale = function () {
-  let worldToPixelScale;
-
-  if (window.innerWidth / window.innerHeight < worldWidth / worldHeight)
-    worldToPixelScale = window.innerWidth / worldWidth;
-  else worldToPixelScale = window.innerHeight / worldHeight;
-
-  worldElement.style.width = `${worldToPixelScale * worldWidth}`;
-  worldElement.style.height = `${worldToPixelScale * worldHeight}`;
-};
-
+setPixelToWorldScale() 
 
 window.addEventListener('resize', setPixelToWorldScale);
 document.addEventListener("keydown", handleStart,{once: true})
@@ -29,10 +19,10 @@ document.addEventListener("keydown", handleStart,{once: true})
 let lastTime
 let speedScale
 let score
-setupGround()
+
 
 function update(time) {
-  if (lastTime === null) {
+  if (lastTime == null) {
     lastTime = time;
     window.requestAnimationFrame(update);
     return;
@@ -43,8 +33,31 @@ function update(time) {
   updateCactus(delta,speedScale)
   updateSpeedScale(delta)
   updateScore(delta)
+
+  if(checkLose())
+   return handleLose()
   lastTime = time;
   window.requestAnimationFrame(update);
+}
+
+function checkLose(){
+  const dinoRect=getDinoRect()
+  return getCactusRects().some(rect=> isCollision(rect,dinoRect))
+}
+function isCollision(rect1, rect2){
+  return (
+    rect1.left<rect2.right && 
+    rect1.top<rect2.bottom && 
+    rect1.right>rect2.left &&
+    rect1.bottom>rect2.top 
+  )
+}
+function handleLose(){
+  setDinoLose()
+  setTimeout(() =>{
+    document.addEventListener("keydown", handleStart,{once: true})
+    startScreenElem.classList.remove("hide")
+  },100)
 }
 function updateSpeedScale(delta)
 {
@@ -66,4 +79,15 @@ function handleStart()
   startScreenElem.classList.add("hide")
   window.requestAnimationFrame(update);
 }
-window.requestAnimationFrame(update);
+function setPixelToWorldScale () {
+  let worldToPixelScale;
+
+  if (window.innerWidth / window.innerHeight < worldWidth / worldHeight)
+    worldToPixelScale = window.innerWidth / worldWidth
+  else 
+    worldToPixelScale = window.innerHeight / worldHeight
+
+  worldElement.style.width = `${worldToPixelScale * worldWidth}px`;
+  worldElement.style.height = `${worldToPixelScale * worldHeight}px`;
+}
+

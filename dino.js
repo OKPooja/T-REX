@@ -1,7 +1,7 @@
 import { getCustomProperty, incrementCustomProperty, setCustomProperty } from "./updateCustomProperty.js"
 
-const dinoElem=document.querySelector("[data-dnio]")
-const JUMP_SPEED=.45
+const dinoElem=document.querySelector("[data-dino]")
+const JUMP_SPEED=0.45
 const GRAVITY=0.0015
 const DINO_FRAME_COUNT=2
 const FRAME_TIME=100
@@ -27,6 +27,15 @@ export function updateDino(delta,speedScale)
     handleJump(delta)
 }
 
+export function getDinoRect()
+{
+    return dinoElem.getBoundingClientRect()
+}
+export function setDinoLose()
+{
+    dinoElem.src="imgs/dino-lose.png"
+}
+
 function handleRun(delta,speedScale){
     if(isJumping)
     {
@@ -37,7 +46,7 @@ function handleRun(delta,speedScale){
     if(currentFrameTime>=FRAME_TIME)
     {
       dinoFrame=(dinoFrame+1)% DINO_FRAME_COUNT
-      dinoElem.src= 'imgs/dino-run-${dinoFrame}.png'
+      dinoElem.src = `imgs/dino-run-${dinoFrame}.png`
       currentFrameTime-=FRAME_TIME
 
     }
@@ -63,6 +72,7 @@ function handleJump(delta)
 function onJump(e)
 {
     if(e.code!=="Space" || isJumping)
+     return
 
     yVelocity=JUMP_SPEED
     isJumping=true

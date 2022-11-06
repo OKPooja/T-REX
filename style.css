@@ -34,11 +34,11 @@ body {
   display: none;
 }
 .ground {
-  --leftShift: 0;
+  --left: 0;
   width: 300%;
   position: absolute;
   bottom: 0;
-  left: calc(var(--leftShift) * 1%);
+  left: calc(var(--left) * 1%);
 }
 .dino {
   position: absolute;

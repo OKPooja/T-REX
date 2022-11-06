@@ -10,16 +10,16 @@ const speed = 0.05;
 const groundElement = document.querySelectorAll("[data-ground]");
 
 export function setupGround() {
-  setCustomProperty(groundElement[0], "--leftShift", 0);
-  setCustomProperty(groundElement[1], "--leftShift", 300);
+  setCustomProperty(groundElement[0], "--left", 0);
+  setCustomProperty(groundElement[1], "--left", 300);
 }
 
 export function updateGround(delta,speedScale) {
   groundElement.forEach(ground => {
-    incrementCustomProperty(ground, "--leftShift", delta * speedScale* speed * -1);
+    incrementCustomProperty(ground, "--left", delta * speedScale* speed * -1);
 
-    if (getCustomProperty(ground, "--leftShift") <= -300) {
-      incrementCustomProperty(ground, "--leftShift", 600);
+    if (getCustomProperty(ground, "--left") <= -300) {
+      incrementCustomProperty(ground, "--left", 600);
     }
-  });
+  })
 }
