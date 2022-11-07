@@ -1,36 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>T-Rex Game!</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" type="module"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"/>
-  </head>
-  <body>
-    <div class="bg-sky">
-      <div class="cloud1">
-        <img src="imgs/cloud.png" class="cloud1" /></div>
-      <div class="cloud2">
-        <img src="imgs/cloud.png" class="cloud2" /></div>
-      <div class="green">
-        <img src="imgs/green.png" class="green" />
-      </div>
-      <div><img src="imgs/Sun.png" class="sun"> </div>
-      <div class="score" data-score>0</div>
-      <div class="highScore" data-highScore>0</div>
-      <button class="menu" data-menu><a href="menu.html">MAIN MENU</a></button>
-      <div class="world" data-world>
-        <div class="start-screen" data-start-screen>Press any key to start</div>
-        <img src="imgs/ground1.png" class="ground" data-ground />
-        <img src="imgs/ground1.png" class="ground" data-ground />
-        <img src="imgs/dino-stationary-rbg.png" class="dino" data-dino />
-      </div> 
-  </body>
-  <audio  data-audio-main><source src = "Lurking-Evil.mp3" type ="audio/mpeg"></audio>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Main Menu</title>
+        <script type="module" src="volume.js"></script>
+        <link rel="stylesheet" type="text/css" href="style_menu.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="options">
+        <h1>T-REX GAME</h1>
+        <button class="option-element play" data-hide><a href="game.html">PLAY</a></button>
+        <button class="option-element volume-sfx" data-volume-sfx>SETTINGS</button>
+        <button class="option-element github" data-hide><a href="https://github.com/mozilla01/T-REX-game-MPR" target="_blank">VIEW SOURCE CODE</a></button>
+        <h2 class="volume hide" data-volume>Volume controls</h2>
+        <input type="range" min="0" max="100" value="100" class="volume-controls hide" data-volume-controls>
+        <button data-go-back class="go-back hide">GO BACK</button>
+    </div>
+</body>
+<audio autoplay loop data-audio><source src = "Spazzmatica-Polka.mp3" type ="audio/mpeg"></audio>
 </html>
