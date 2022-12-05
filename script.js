@@ -21,6 +21,7 @@ let lastTime;
 let speedScale;
 let score;
 let highScore;
+
 if(window.localStorage.getItem("highscore")===null){
   highScore = 0;
 }
